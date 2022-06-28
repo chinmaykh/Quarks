@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="quarks">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article | Quarks</title>
+
+    <!-- MaterializeCSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Cool libraries -->
+    <link rel="stylesheet preload" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet preload">
+
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="public/fonts/Permanent_Marker/PermanentMarker-Regular.ttf">
+    <link rel="stylesheet" href="/style.css">
+    <!-- Material Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<style>
+    * {
+        /* border: 0.1px red solid; */
+    }
+
+    /* .article-body{
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    } */
+</style>
+
+<body ng-controller="articleController">
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper black">
+                &nbsp;&nbsp;
+                <a href="/" class="brand-logo">Quarks</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="sass.html">About</a></li>
+                    <li><a href="badges.html">Editorial</a></li>
+                    <li><a href="collapsible.html">Search</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+
+    <div class="section" style="padding: 0px;">
+        <img src="https://picsum.photos/2000/250" alt="Banner Image" style="width: 100vw; height: 300px">
+    </div>
+
+    <div class="container">
+        <div class="section article-heading">
+            <h1>{{article.title}}</h1>
+            <!-- Author Name and Dates -->
+            <div class="row">
+                <div class="col s6">
+                    <h5>{{article.author.displayName}} &middot; {{article.updated | date: 'MMMM dd, yyyy'}}</h5>
+                </div>
+            </div>
+        </div>
+        <div class="section article-body">
+            <div class="flow-text" ng-bind-html="article.body">
+            </div>
+        </div>
+
+        <div class="divider black"></div>
+
+        <div class="section">
+            <div class="row">
+                <div class="col s6">
+                    <h5>Chinmay K Haritas</h5>
+                    <p class="flow-text">
+                        The author is a webdev wizard.
+                    </p>
+                </div>
+                <div class="col s6">
+                    <h5>Something on the same hierarchy as my name</h5>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <script src="/node_modules/angular/angular.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

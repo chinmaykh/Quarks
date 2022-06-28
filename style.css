@@ -1,0 +1,72 @@
+:root {
+    --pm: 'Permanent Marker', cursive;
+    ;
+}
+
+html,
+body {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+body {
+    /* background-image: url("public/paper_texture.jpg"); */
+    background-image: url("public/images/olga-thelavart-vS3idIiYxX0-unsplash.jpg");
+    background-repeat: initial;
+}
+
+.snap {
+    scroll-snap-align: start;
+}
+
+.slide {
+    height: 100vh;
+    width: 100vw;
+}
+
+.originate {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav{
+    display: calc()
+}
+
+.navbar-fixed{
+    height: 0px !important;
+}
+
+#main{
+    /* Maintain full height at all times - You resemble the webpage now */
+    min-height: 100vh;
+    width: 100vw;
+    /* height: max-content; */
+    overflow: scroll;
+    -ms-overflow-style: none;
+}
+
+#main::-webkit-scrollbar {
+    display: none;
+}
+
+
+h1 {
+
+    font-family: var(--pm);
+}
+
+.flow-text {
+    text-align: justify;
+}
+
+h4,
+.card-title {
+    margin-top: 0px;
+    padding-top: 5px;
+}
+
+.card-content {
+    padding-top: 10px;
+}

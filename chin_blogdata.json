@@ -1,0 +1,23 @@
+{
+    "kind": "blogger#blog",
+    "id": "6405308807706472057",
+    "name": "What is a blog",
+    "description": "",
+    "published": "2020-04-13T00:46:51-07:00",
+    "updated": "2022-06-08T07:04:43-07:00",
+    "url": "http://chinmaykh.blogspot.com/",
+    "selfLink": "https://www.googleapis.com/blogger/v3/blogs/6405308807706472057",
+    "posts": {
+        "totalItems": 4,
+        "selfLink": "https://www.googleapis.com/blogger/v3/blogs/6405308807706472057/posts"
+    },
+    "pages": {
+        "totalItems": 0,
+        "selfLink": "https://www.googleapis.com/blogger/v3/blogs/6405308807706472057/pages"
+    },
+    "locale": {
+        "language": "en",
+        "country": "",
+        "variant": ""
+    }
+}
