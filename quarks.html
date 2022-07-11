@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="quarks">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quarks</title>
+
+    <meta name="description"
+        content="Quarks is a media body publishing the creative output of the undegradute community at the Indian Institute of Science. Quarks showcases students' prose, poetry, photography and more!">
+
+    <!-- MaterializeCSS 1.0.0 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz@0,6..96;1,6..96&display=swap"
+        rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<style>
+    html {
+        scroll-behavior: smooth;
+        scroll-snap-type: y proximity;
+    }
+
+    @font-face {
+        font-family: 'Big Caslon';
+        src: url("/public/fonts/Big Caslon/Big\ Caslon\ Medium.ttf");
+    }
+
+    .bodoni-moda {
+        font-family: 'Bodoni Moda', serif;
+    }
+
+    .big-caslon {
+        font-family: "Big Caslon";
+    }
+
+    body {
+        /* background-image: url("/public/images/email-pattern.png"); */
+        height: fit-content;
+    }
+
+    #landing_wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        /* background-image: url("/public/images/IMG_20190808_182527_264.jpg"); */
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-blend-mode: hue;
+        /* scroll-snap-align: start; */
+    }
+
+    #bloglist_wrapper {
+        min-height: 100vh;
+    }
+
+    .main_article {
+        scroll-snap-align: start;
+        border-radius: 10px !important;
+    }
+
+    .side_article {
+        min-height: 200px;
+        /* padding: 10px; */
+        border-radius: 10px !important;
+        box-shadow: black;
+    }
+
+    .side_article_wrapper {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 25vw));
+        justify-content: space-evenly;
+        column-gap: 20px;
+        row-gap: 10px;
+        border-radius: 20px;
+    }
+
+    .wanna_read:hover {
+        color: orange !important;
+        cursor: pointer;
+    }
+
+    .parallax-container {
+        height: 300px;
+    }
+
+    @media screen and (max-width: 600px) {
+        .parallax-container {
+            height: 400px;
+        }
+    }
+
+    .ma_deets_container {
+        margin-inline: 30px;
+        position: relative;
+        top: -80px;
+    }
+
+    .scroll_stop {
+        scroll-snap-align: start;
+        scroll-margin-top: calc(20px + 64px);
+    }
+
+    .tools:hover {
+        color: orangered !important;
+    }
+
+    .slide {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+    }
+
+    * {
+        /* outline: 1px solid forestgreen; */
+        /* background-color: rgba(34, 139, 34, 0.013); */
+    }
+
+    .landing_heading {
+        font-size: 8rem;
+    }
+
+    .container {
+        width: 85%;
+    }
+</style>
+
+<body ng-controller="homeController">
+
+    <!-- Fixed navbar -->
+    <div class="navbar-fixed" style="height: 64px">
+        <nav>
+            <div class="nav-wrapper black">
+                <a href="#!" class="brand-logo bodoni-moda">&nbsp; Quarks</a>
+                <ul class="right hide-on-med-and-down">
+                    <li>
+                        <a href="/">
+                            <i class="material-icons">search</i>
+                        </a>
+                    </li>
+                    <li><a href="/"></a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+
+    <div id="landing_wrapper">
+        <div>
+            <h1 class="landing_heading bodoni-moda">
+                Quarks
+            </h1>
+            <h3 class="tagline big-caslon">
+                <i>
+                    IISc's Undergraduate Media Body
+                </i>
+            </h3>
+        </div>
+    </div>
+
+    <div class="grounded_wrapper row">
+        <!-- Wrapper for the entire content -->
+        <div class="col l12 m9 s12">
+            <!-- Wrapper for the blogs -->
+            <div id="bloglist_wrapper">
+                <!-- Nested repeats -->
+                <div ng-repeat="ma in main_articles track by $index">
+                    <!-- Main -->
+                    <a ng-href="{{ma.url}}" class="main_article wanna_read black-text scroll_stop" id="{{ma.title}}"
+                        class="scrollspy">
+                        <!-- Image Goes Here -->
+                        <div class="parallax-container scroll_stop">
+                            <div class="parallax">
+                                <img ng-src="https://picsum.photos/{{2000*0.75}}/1000?random={{$index}}"
+                                    alt="Image related to {{ma.title}}">
+                            </div>
+                        </div>
+
+                        <div class="ma_deets_container">
+                            <div class="card-panel" style="border-radius: 10px;">
+                                <h4 ng-class="ma_title">
+                                    {{ma.title}}
+                                </h4>
+                                <div ng-class="ma_deets">
+                                    <b>By</b> {{ma.author}}
+                                    <i class="material-icons right">chat_bubble_outline</i>
+                                    <i class="material-icons right">bookmark</i>
+                                </div>
+                            </div>
+
+                        </div>
+                    </a>
+                    <!-- sidearticles container -->
+                    <div class="container side_article_wrapper">
+                        <!-- side article -->
+                        <div class="side_article card wanna_read scroll_stop z-depth-2"
+                            ng-repeat="sa in getSideArticles($index) track by $index" ng-href="{{sa.url}}">
+                            <div class="card-image">
+                                <img src="https://picsum.photos/200/150?random={{$parent.$index*SPM + $index}}"
+                                    alt="Image for {{sa.title}}" width="200" height="200">
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title sa_heading"><b>{{sa.title}}</b></span>
+                            </div>
+                            <div class="card-action truncate sa_deets">
+                                <b>By </b> {{sa.author}}
+                                <a href="#" class="tools"><i class="material-icons right">bookmark</i></a>
+                                <a href="#" class="tools"><i class="material-icons right">chat_bubble_outline</i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <br><br>
+                </div>
+
+            </div>
+
+            <!-- Archives -->
+            <div id="archives" class="slide scrollspy">
+                <div>
+                    <h2>Search</h2>
+                </div>
+                <div>
+                    <div class="input-field white" style="border-radius: 20px; width: 30vw;">
+                        <input type="text" id="archives_search" style="border: none !important;" class="center"
+                            ng-model="search">
+                        <label for="archives_search"></label>
+                    </div>
+                </div>
+                <div>
+                    <table class="centered" style="min-width: 30vw;">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Author</th>
+                                <th>Publish Date</th>
+                                <th>Tags</th>
+                            </tr>
+                        </thead>
+                        <div class="center" style="display: flex; justify-content: center; align-items: baseline;">
+                            Top <input type="number" min="0" max="10" ng-value="{{6}}" style="width: 50px;"
+                                class="center" ng-model="showLimit">results shown
+                        </div>
+                        <tbody>
+                            <tr ng-repeat="article in articles | filter:search | limitTo: showLimit"
+                                style="cursor:pointer;">
+                                <td>{{article.title}}</td>
+                                <td>{{article.author}}</td>
+                                <td>{{article.url}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+
+        <style>
+            li {
+                font-size: large;
+                font-weight: 500;
+            }
+        </style>
+
+        <!-- Scrollspy -->
+        <div class="col l2 m3 hide-on-small-only" ng-hide="true">
+            <ul id="toc" class="table-of-contents truncate"
+                style="position: fixed; top: 30vh; right: 40px; text-align: left; max-width: 10vw;">
+                <li>
+                    <a href="#bloglist_wrapper">Just-In</a>
+                </li>
+                <li ng-repeat="ma in main_articles" class="truncate">
+                    <a ng-href="#{{ma.title}}">{{ma.title}}</a>
+                </li>
+                <li><a href="#archives">Archives</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <footer class="page-footer black">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Quarks!</h5>
+                    <p class="grey-text text-lighten-4">
+                        Content expressed on this website are the opinions of the authors.
+                        These are not the views of the Indian Institute of Science or Quarks.
+                    </p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Links</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2014 Copyright Text
+                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <!-- AngularJS 1.8.2 -->
+    <script src="/node_modules/angular/angular.min.js"></script>
+    <script src="/chance.js"></script>
+
+    <!-- My Script -->
+    <script src="/app.js"></script>
+
+    <!-- MaterializeJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+
+</html>

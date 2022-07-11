@@ -1,17 +1,17 @@
-:root {
+/* :root {
     --pm: 'Permanent Marker', cursive;
     ;
 }
 
 html,
 body {
-    scroll-snap-type: y mandatory;
+    scroll-snap-type: y proximity;
     scroll-behavior: smooth;
 }
 
 body {
-    /* background-image: url("public/paper_texture.jpg"); */
-    background-image: url("public/images/olga-thelavart-vS3idIiYxX0-unsplash.jpg");
+    background-image: url("public/paper_texture.jpg");
+    /* background-image: url("public/images/olga-thelavart-vS3idIiYxX0-unsplash.jpg"); */
     background-repeat: initial;
 }
 
@@ -70,3 +70,11 @@ h4,
 .card-content {
     padding-top: 10px;
 }
+
+.authorName{
+    text-transform: capitalize;
+}
+
+.article_heading{
+    font-family: "Playfair Display", serif;
+} */
