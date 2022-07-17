@@ -1,0 +1,10 @@
+{
+    "short_name": "Quarks",
+    "name": "Quarks: IISc's Undergraduate Media Body",
+    "start_url": "/Quarks/",
+    "background_color": "#3367D6",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#3367D6",
+    "description": "Quarks is a media body publishing the creative output of the undegradute community at the Indian Institute of Science. Quarks showcases students' prose, poetry, photography and more!"
+  }

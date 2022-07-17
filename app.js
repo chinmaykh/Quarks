@@ -31,6 +31,8 @@ app.controller("homeController", [
     // Generate 20 Articles Inline
     $scope.articles = [];
 
+    localStorage.setItem("base", window.localStorage.href)
+
     // GEt Articles From API
     $http({
       method: "GET",
@@ -74,7 +76,7 @@ app.controller("homeController", [
           articles.push(new Article(
             (title = blogger_article.title),
             (author = author.slice(8)),
-            (url = `/article.html?id=${blogger_article.id}`),
+            (url = window.location.href+`article.html?id=${blogger_article.id}`),
             (published = new Date(blogger_article.published)),
             (labels = blogger_article.labels),
             (image =
@@ -187,6 +189,8 @@ app.controller("articleController", [
     // Get Article ID from URL
     let id = window.location.href.split("?")[1].split("=")[1];
     console.log(id);
+
+    $scope.base = localStorage.getItem("base") || "https://chinmaykh.github.io/Quarks/";
 
     $http({
       method: "GET",

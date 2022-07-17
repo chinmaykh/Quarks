@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Article | Quarks</title>
 
+    <link rel="manifest" href="manifest.json">
+
     <!-- MaterializeCSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
@@ -39,7 +41,7 @@
         <nav>
             <div class="nav-wrapper black">
                 &nbsp;&nbsp;
-                <a href="/" class="brand-logo">Quarks</a>
+                <a ng-href="{{base}}" class="brand-logo">Quarks</a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="sass.html">About</a></li>
                     <li><a href="badges.html">Editorial</a></li>
@@ -92,8 +94,8 @@
         </div>
     </div>
 
-    <script src="/node_modules/angular/angular.min.js"></script>
-    <script src="app.js"></script>
+    <script src="./node_modules/angular/angular.min.js"></script>
+    <script src="./app.js"></script>
 </body>
 
 </html>
