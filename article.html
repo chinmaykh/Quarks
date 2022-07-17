@@ -26,6 +26,9 @@
         /* border: 0.1px red solid; */
     }
 
+    img[title="Title"]{
+        display: none;
+    }
     /* .article-body{
         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     } */
@@ -48,7 +51,11 @@
 
 
     <div class="section" style="padding: 0px;">
-        <img src="https://picsum.photos/2000/250" alt="Banner Image" style="width: 100vw; height: 300px">
+        <img 
+        ng-src="{{banner}}"
+        alt="Banner Image"
+        style="width: 100vw; height: 300px"
+    >
     </div>
 
     <div class="container">
@@ -71,9 +78,9 @@
         <div class="section">
             <div class="row">
                 <div class="col s6">
-                    <h5>Chinmay K Haritas</h5>
+                    <h5>{{article.author.displayName}}</h5>
                     <p class="flow-text">
-                        The author is a webdev wizard.
+                        {{article.author.bio}}
                     </p>
                 </div>
                 <div class="col s6">

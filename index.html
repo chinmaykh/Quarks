@@ -15,7 +15,8 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz@0,6..96;1,6..96&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;1,6..96,400;1,6..96,600&display=swap"
         rel="stylesheet">
 
     <!-- Material Icons -->
@@ -181,13 +182,13 @@
                         <!-- Image Goes Here -->
                         <div class="parallax-container scroll_stop">
                             <div class="parallax">
-                                <img ng-src="https://picsum.photos/{{2000*0.75}}/1000?random={{$index}}"
-                                    alt="Image related to {{ma.title}}">
+                                <img ng-src="{{ma.image}}" alt="Image related to {{ma.title}}">
                             </div>
                         </div>
 
                         <div class="ma_deets_container">
                             <div class="card-panel" style="border-radius: 10px;">
+                                <!-- <span ng-repeat="(key, value) in ma">{{key}} - {{value}} <br> </span> -->
                                 <h4 ng-class="ma_title">
                                     {{ma.title}}
                                 </h4>
@@ -197,20 +198,22 @@
                                     <i class="material-icons right">bookmark</i>
                                 </div>
                             </div>
-
                         </div>
                     </a>
                     <!-- sidearticles container -->
                     <div class="container side_article_wrapper">
                         <!-- side article -->
                         <div class="side_article card wanna_read scroll_stop z-depth-2"
-                            ng-repeat="sa in getSideArticles($index) track by $index" ng-href="{{sa.url}}">
+                            ng-repeat="sa in getSideArticles($index) track by $index" ng-href="{{sa.url}}" ng-click="nav(sa.url)">
                             <div class="card-image">
-                                <img src="https://picsum.photos/200/150?random={{$parent.$index*SPM + $index}}"
+                                <!-- src="https://picsum.photos/200/150?random={{$parent.$index*SPM + $index}}" -->
+                                <img ng-src = "{{sa.image}}"
                                     alt="Image for {{sa.title}}" width="200" height="200">
                             </div>
                             <div class="card-content">
-                                <span class="card-title sa_heading"><b>{{sa.title}}</b></span>
+                                <span class="card-title sa_heading">
+                                    <b>{{sa.title}}</b>
+                                </span>
                             </div>
                             <div class="card-action truncate sa_deets">
                                 <b>By </b> {{sa.author}}
@@ -220,6 +223,7 @@
                         </div>
                     </div>
                     <br><br>
+                    <div class="container divider" ng-if="$last" ng-init="initiate_parallax($last);"></div>
                 </div>
 
             </div>
