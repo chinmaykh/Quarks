@@ -31,7 +31,7 @@ app.controller("homeController", [
     // Generate 20 Articles Inline
     $scope.articles = [];
 
-    localStorage.setItem("base", window.localStorage.href)
+    localStorage.setItem("base", window.location.href)
 
     // GEt Articles From API
     $http({
