@@ -73,10 +73,12 @@ app.controller("homeController", [
             return
           }
 
+          console.log(window.location.href);
+
           articles.push(new Article(
             (title = blogger_article.title),
             (author = author.slice(8)),
-            (url = window.location.href+`article.html?id=${blogger_article.id}`),
+            (url = window.location.href+`/Quarks/article.html?id=${blogger_article.id}`),
             (published = new Date(blogger_article.published)),
             (labels = blogger_article.labels),
             (image =
