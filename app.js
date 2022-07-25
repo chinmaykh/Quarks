@@ -67,6 +67,10 @@ app.controller("homeController", [
             }
           );
 
+          let tagline = blogger_article.labels.find((label) => {
+            return label.startsWith("TL: ");
+          }) || "";
+
           if (!author) {
             console.warn("No author label:", blogger_article.title);
             // Skip this article
@@ -205,15 +209,36 @@ app.controller("articleController", [
       (res) => {
         console.table(res.data);
         // Lets work with one article... We shall sanitize and inject the html
-        $scope.article = res.data;
-        $scope.banner =
-          res.data.images != undefined
-            ? res.data.images[0].url
-            : "https://picsum.photos/2000/1000";
-        $scope.article.body = $sce.trustAsHtml($scope.article.content);
-        $scope.article.author.bio = res.data.labels.find((label) => {
+        
+        // Extracting metadata
+        let author = res.data.labels.find(
+          (label) => {
+            return label.startsWith("Author: ")
+          }
+        );
+
+        let author_description = res.data.labels.find((label) => {
           return label.startsWith("AD: ");
-        }).slice(4)
+        })
+
+        let tagline = res.data.labels.find((label) => {
+          return label.startsWith("TL: ");
+        }) || "";
+        
+        $scope.article = new Article(
+          (title = res.data.title),
+          (author = author.slice(8)),
+          (url = window.location.href),
+          (published = new Date(res.data.published)),
+          (labels = res.data.labels),
+          (image = res.data.images != undefined ? res.data.images[0].url:"https://picsum.photos/2000/1000"),
+        )
+
+        $scope.article.body = $sce.trustAsHtml(res.data.content);
+        $scope.article.author_bio = (author_description.slice(4));
+        $scope.article.tagline = $sce.trustAsHtml(tagline.slice(3));
+
+        console.table($scope.article);
       },
       (err) => {
         console.log("%j", err.data);
@@ -228,8 +253,12 @@ app.controller("articleController", [
 window.onscroll = () => {
   // Make opacity propotional to scroll position
   let opacity = (window.scrollY / window.innerHeight).toFixed(2);
-  document.getElementById("toc").style.opacity = opacity;
-  document.querySelector("nav").style.opacity = opacity;
+  try {
+    document.getElementById("toc").style.opacity = opacity;  
+    document.getElementById("nav-index").style.opacity = opacity;
+  } catch (error) {
+    console.log("No TOC");
+  }
 };
 
 /**

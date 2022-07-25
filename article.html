@@ -38,7 +38,7 @@
 
 <body ng-controller="articleController">
     <div class="navbar-fixed">
-        <nav>
+        <nav id="nav">
             <div class="nav-wrapper black">
                 &nbsp;&nbsp;
                 <a ng-href="{{base}}" class="brand-logo">Quarks</a>
@@ -65,8 +65,8 @@
             <h1>{{article.title}}</h1>
             <!-- Author Name and Dates -->
             <div class="row">
-                <div class="col s6">
-                    <h5>{{article.author.displayName}} &middot; {{article.updated | date: 'MMMM dd, yyyy'}}</h5>
+                <div class="col s12">
+                    <h5>Author: {{article.author}} &middot; Published: {{article.published | date: 'MMMM dd, yyyy'}}</h5>
                 </div>
             </div>
         </div>
@@ -80,9 +80,9 @@
         <div class="section">
             <div class="row">
                 <div class="col s6">
-                    <h5>{{article.author.displayName}}</h5>
+                    <h5>{{article.author}}</h5>
                     <p class="flow-text">
-                        {{article.author.bio}}
+                        {{article.author_bio}}
                     </p>
                 </div>
                 <div class="col s6">

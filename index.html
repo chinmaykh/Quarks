@@ -142,7 +142,7 @@
 
     <!-- Fixed navbar -->
     <div class="navbar-fixed" style="height: 64px">
-        <nav>
+        <nav id="nav-index">
             <div class="nav-wrapper black">
                 <a href="#!" class="brand-logo bodoni-moda">&nbsp; Quarks</a>
                 <ul class="right hide-on-med-and-down">
@@ -183,7 +183,7 @@
 
     <div class="grounded_wrapper row">
         <!-- Wrapper for the entire content -->
-        <div class="col l12 m9 s12">
+        <div class="col l12 m12 s12">
             <!-- Wrapper for the blogs -->
             <div id="bloglist_wrapper">
                 <!-- Nested repeats -->
@@ -204,6 +204,11 @@
                                 <h4 ng-class="ma_title">
                                     {{ma.title}}
                                 </h4>
+                                <!-- Tagline -->
+                                <div class="center" ng-if="ma.tagline">
+                                    <i>"...And there he saw in the clearing, a site to be beheld only once..."</i>
+                                    <br><br>
+                                </div>
                                 <div ng-class="ma_deets">
                                     <b>By</b> {{ma.author}}
                                     <i class="material-icons right">chat_bubble_outline</i>
@@ -288,7 +293,7 @@
         </style>
 
         <!-- Scrollspy -->
-        <div class="col l2 m3 hide-on-small-only" ng-hide="true">
+        <!-- <div class="col l2 m3 hide-on-small-only" ng-hide="true">
             <ul id="toc" class="table-of-contents truncate"
                 style="position: fixed; top: 30vh; right: 40px; text-align: left; max-width: 10vw;">
                 <li>
@@ -299,7 +304,7 @@
                 </li>
                 <li><a href="#archives">Archives</a></li>
             </ul>
-        </div>
+        </div> -->
     </div>
 
     <footer class="page-footer black">
