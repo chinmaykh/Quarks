@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset='utf-8'>
+	<meta name='viewport' content='width=device-width,initial-scale=1'>
+
+	<title>Svelte app</title>
+
+	<link rel='icon' type='image/png' href='/favicon.png'>
+	<link rel='stylesheet' href='/global.css'>
+	<link rel='stylesheet' href='/build/bundle.css'>
+
+	<script defer src='/build/bundle.js'></script>
+</head>
+
+<body>
+</body>
+<style>
+	html {
+		scroll-behavior: smooth;
+		scroll-snap-type: y proximity;
+	}
+
+	body {
+		/* background-image: url("/public/images/email-pattern.png"); */
+		height: fit-content;
+	}
+
+	.scroll_stop{
+		scroll-snap-align: start;
+		scroll-margin-top: calc(20px + 64px);
+	}
+
+	.main_article {
+		scroll-snap-align: start;
+		border-radius: 10px !important;
+	}
+
+	.wanna_read:hover {
+		color: orange !important;
+		cursor: pointer;
+	}
+
+	.parallax-container {
+		height: 300px;
+	}
+
+	@media screen and (max-width: 600px) {
+		.parallax-container {
+			height: 400px;
+		}
+	}
+
+	.ma_deets_container {
+		margin-inline: 30px;
+		position: relative;
+		top: -80px;
+	}
+
+	.side_article {
+		min-height: 200px;
+		/* padding: 10px; */
+		border-radius: 10px !important;
+		box-shadow: black;
+	}
+
+	.wanna_read:hover {
+		color: orange !important;
+		cursor: pointer;
+	}
+
+	.tools:hover {
+		color: orangered !important;
+	}
+</style>
+
+</html>

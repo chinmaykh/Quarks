@@ -1,0 +1,34 @@
+{
+  "name": "quarks",
+  "version": "1.0.0",
+  "description": "Indian Institute of Science (IISc)'s undegraduate media body",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chinmaykh/Quarks.git"
+  },
+  "keywords": [
+    "Quarks",
+    "Literature",
+    "IISc",
+    "Bangalore",
+    "Science",
+    "Research",
+    "Photography",
+    "Magazine",
+    "News"
+  ],
+  "author": "Chinmay K Haritas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chinmaykh/Quarks/issues"
+  },
+  "homepage": "https://github.com/chinmaykh/Quarks#readme",
+  "dependencies": {
+    "angular-material": "^1.2.5",
+    "animate.css": "^4.1.1"
+  }
+}
