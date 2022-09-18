@@ -105,11 +105,6 @@
     border-radius: 20px;
   }
 
-  /* * {
-    outline: 1px solid forestgreen;
-    background-color: rgba(34, 139, 34, 0.013);
-  } */
-
   .landing_heading {
     font-size: 8rem;
   }
